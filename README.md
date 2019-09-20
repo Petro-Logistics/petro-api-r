@@ -105,7 +105,7 @@ This module is a R API client (with example) for retrieving data with with the [
 
 - ### Function execution Example
     ```R
-    res <- GetData(your_client_structure_name, "query_name")
+    res <- GetAPI(your_client_structure_name, "query_name")
     ```
 
 
