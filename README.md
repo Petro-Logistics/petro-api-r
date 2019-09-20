@@ -111,20 +111,3 @@ This module is a R API client (with example) for retrieving data with with the [
 
 ## Example
 1. An example of how to test/use PLAPIClient is available in **example.R** located [here](example.R)
-
-
-
-
-Subsequent runs
----------------
-
-To experiment with the library, the easiest way is to change the example.R file
-and run it from within RStudio.
-
-1. Launch RStudio
-2. Run this command to execute the example file:
-    source("c:/petrologistics/petrologistics/example.R")
-3. To change the query name in the API, edit the 'example.R' file and replace
-   "Angola_Test_Data" with the query name of your choice. Then repeat step 2.
-
-
