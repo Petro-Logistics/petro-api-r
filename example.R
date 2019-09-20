@@ -1,15 +1,16 @@
-library(petrologistics)
+library(PLAPIClient)
 
 # Create a client for the API
-client <- PetroLogistics(
-                         username = "testuser_http_CuH68Omfx17R",
-                         password = "X9PV5EmJPr88lEyjD2I2IE26b9ElQCX0",
-                         apiKey   = "37rspm6j39td23nh0o2v0h78",
-                         apiHash  = "P0iwW39qaMvTjFRdcmsiKmD9OxGEquHNXapwbSQr8gbuV2ssqjbt0Vy7Yelyi4C1"
-                         )
+client <- Client(
+                         api_url = "https://secure.petro-logistics.com/api/v2/aggregatemovementsdata",
+                         api_user = "testuser_http_CuH68Omfx17R",
+                         api_password = "X9PV5EmJPr88lEyjD2I2IE26b9ElQCX0",
+                         api_key = "37rspm6j39td23nh0o2v0h78",
+                         api_hash = "P0iwW39qaMvTjFRdcmsiKmD9OxGEquHNXapwbSQr8gbuV2ssqjbt0Vy7Yelyi4C1"
+                        )
 
 # Make the API request and get the results
-res <- AggregateMovementsData(client, "Angola_Test_Data")
+res <- GetData(client, "Angola_Test_Data")
 
 # dump the whole response to the screen
 # dump("res", file="")

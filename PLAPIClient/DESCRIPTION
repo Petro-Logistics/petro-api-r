@@ -1,10 +1,10 @@
-Package: petrologistics
-Title: PetroLogistics API client
+Package: PLAPIClient
+Title: PLAPIClient API client
 Version: 0.0.0.9000
 Authors@R: person("Luke", "Campbell", email = "lcampbell@protonmail.com", role = c("aut", "cre"))
-Description: This package provides functions to call the PetroLogistics API
+Description: This package provides functions to call the PLAPIClient API
 Depends: R (>= 3.0.0), httr
 License: MIT
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 5.0.1.9000
+RoxygenNote: 6.1.1

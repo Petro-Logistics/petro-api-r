@@ -1,53 +1,52 @@
 library(httr)
 
-aggregateMovementsUrl <- "https://secure.petro-logistics.com/api/v2/aggregatemovementsdata"
-
-#' PetroLogistics API constructor
+#' plapi constructor
 #'
-#' This function creates a client for the PetroLogistics API
-#' @param username Username
-#' @param password Password
-#' @param apiKey   API Key
-#' @param apiHash  API Hash
+#' This function creates a client for the PLAPIClient API
+#' @param api_url url of API requested
+#' @param api_user Username
+#' @param api_password Password
+#' @param api_key   API Key
+#' @param api_hash  API Hash
 #' @export
-PetroLogistics <- function(username, password, apiKey, apiHash) {
+Client <- function(api_url, api_user, api_password, api_key, api_hash) {
   structure(
             list(
-                 username = username,
-                 password = password,
-                 apiKey   = apiKey,
-                 apiHash  = apiHash
+                 api_url = api_url,
+                 api_user = api_user,
+                 api_password = api_password,
+                 api_key = api_key,
+                 api_hash = api_hash
                  ),
-            class = "PetroLogistics"
+            class = "Client"
             )
 }
 
-#' Call the aggregatemovementsdata API
+#' Call the GetData API
 #'
-#' This function calls PetroLogistics' aggregatemovementsdata API and returns the parsed result
-#' @param client    The PetroLogistics API client
-#' @param queryName The query_name parameter passed to the API
+#' This function calls PLAPIClient' and returns the parsed result
+#' @param client    The PLAPIClient
+#' @param query_name The query_name parameter passed to the API
 #' @return list(success=T/F, error="error string"/NA, data=parsed_response/NA) 'success' indicates
 #'   if the API request completed successfully. 'error' has the error string if the request was not
 #'   successful. 'data' as the parsed response, if available. It has the general format
 #'   list(envelope=list(header=list(..), movements=list(..)))
 #' @export
 #' @examples
-#' AggregateMovementsData(client, "Angola_Test_Data")
-AggregateMovementsData <- function(client, queryName) {
+GetData <- function(client, query_name) {
   success <- F
   error   <- NA
   data    <- NA
 
   resp <- tryCatch(
                    POST(
-                        url  = aggregateMovementsUrl,
-                        authenticate(client$username, client$password, type = "basic"),
+                        url  = client$api_url,
+                        authenticate(client$api_user, client$api_password, type = "basic"),
                         body = list(
-                                    api_key    = client$apiKey,
-                                    api_hash   = client$apiHash,
+                                    api_key    = client$api_key,
+                                    api_hash   = client$api_hash,
                                     format     = "json",
-                                    query_name = queryName,
+                                    query_name = query_name,
                                     csv_with_headers = "1"
                                     ),
                         encode = "form"
