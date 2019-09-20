@@ -10,7 +10,7 @@ client <- Client(
                         )
 
 # Make the API request and get the results
-res <- GetData(client, "Angola_Test_Data")
+res <- GetAPI(client, "Angola_Test_Data")
 
 # dump the whole response to the screen
 # dump("res", file="")

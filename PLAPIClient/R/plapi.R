@@ -22,7 +22,7 @@ Client <- function(api_url, api_user, api_password, api_key, api_hash) {
             )
 }
 
-#' Call the GetData API
+#' Call the GetAPI
 #'
 #' This function calls PLAPIClient' and returns the parsed result
 #' @param client    The PLAPIClient
@@ -33,7 +33,7 @@ Client <- function(api_url, api_user, api_password, api_key, api_hash) {
 #'   list(envelope=list(header=list(..), movements=list(..)))
 #' @export
 #' @examples
-GetData <- function(client, query_name) {
+GetAPI <- function(client, query_name) {
   success <- F
   error   <- NA
   data    <- NA
