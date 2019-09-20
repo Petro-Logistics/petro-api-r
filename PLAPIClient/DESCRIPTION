@@ -1,7 +1,9 @@
 Package: PLAPIClient
 Title: PLAPIClient API client
-Version: 0.0.0.9000
-Authors@R: person("Luke", "Campbell", email = "lcampbell@protonmail.com", role = c("aut", "cre"))
+Version: 0.1
+Authors@R: c(
+  person("Luke", "Campbell", email = "lcampbell@protonmail.com", role = c("aut")),
+  person("Mauro", "Developer", email = "mauro.dias@petro-logistics.com", role = c("ctb", "cre")))
 Description: This package provides functions to call the PLAPIClient API
 Depends: R (>= 3.0.0), httr
 License: MIT

@@ -24,8 +24,8 @@ Client <- function(api_url, api_user, api_password, api_key, api_hash) {
 
 #' Call the GetAPI
 #'
-#' This function calls PLAPIClient' and returns the parsed result
-#' @param client    The PLAPIClient
+#' This function calls PLAPIClient and returns the parsed result
+#' @param client    The Client parameter passed to the API
 #' @param query_name The query_name parameter passed to the API
 #' @return list(success=T/F, error="error string"/NA, data=parsed_response/NA) 'success' indicates
 #'   if the API request completed successfully. 'error' has the error string if the request was not
