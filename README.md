@@ -1,3 +1,4 @@
+[![License](https://img.shields.io/github/license/petro-logistics/petro-api-r.svg)](LICENSE)
 # README
 ---
 
