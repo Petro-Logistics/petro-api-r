@@ -95,7 +95,7 @@ This module is a R API client (with example) for retrieving data with with the [
 - ### Structure initialization Example
     ```R
     your_client_structure_name <- Client(
-        api_url = "https://secure.petro-logistics.com/api/v2/requested_report_type",
+        api_url = "https://secure.petro-logistics.com/api/v3/requested_report_type",
         api_user = "your_http_user",
         api_password = "your_http_password",
         api_key = "your_api_key",

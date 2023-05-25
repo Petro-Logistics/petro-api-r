@@ -7,11 +7,11 @@ library(PLAPIClient)
 
 # Create a client for the API
 client <- Client(
-                         api_url = "https://secure.petro-logistics.com/api/v2/aggregatemovementsdata",
-                         api_user = "testuser_http_CuH68Omfx17R",
-                         api_password = "X9PV5EmJPr88lEyjD2I2IE26b9ElQCX0",
+                         api_url = "https://secure.petro-logistics.com/api/v3/aggregatemovementsdata",
+                         api_user = "testuser_http_kRQNk5878ezA",
+                         api_password = "F268DBvvPCBV83eT1vIeTpBGrJD604K2",
                          api_key = "37rspm6j39td23nh0o2v0h78",
-                         api_hash = "P0iwW39qaMvTjFRdcmsiKmD9OxGEquHNXapwbSQr8gbuV2ssqjbt0Vy7Yelyi4C1"
+                         api_hash = "d1Npusz7BrVDauza7b7v5swgV20uiXQwiCG6nxiPseWRda6mTfJBeByKZsvp5sNX"
                         )
 
 # Make the API request and get the results
