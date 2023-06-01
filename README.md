@@ -1,114 +1,104 @@
 [![License](https://img.shields.io/github/license/petro-logistics/petro-api-r.svg)](LICENSE)
-# README
----
+# R API Client
+This module is a R API client (with example) for retrieving data with the [Petro-Logistics API](https://secure.petro-logistics.com/client/api).
 
-## R API Client
-This module is a R API client (with example) for retrieving data with with the [Petro-Logistics API](https://secure.petro-logistics.com/client/api).
+## Index
+[[_TOC_]]
 
 ## Dependencies
-- Running environment [R](https://cran.rstudio.com/)
-- Building R tools [R Tools](https://cran.rstudio.com/)
-- Development tool [RStudio](https://www.rstudio.com/products/rstudio/download/#download)
-
+- Running environment: [R Language](https://cloud.r-project.org/)
+- Building R tools: [R Tools](https://cloud.r-project.org/)
+- Development tool: [RStudio](https://posit.co/download/rstudio-desktop/#download)
 
 ## Install
-- ### Opening the project source in RStudio IDE
-    1. Download and install [R](https://cran.r-project.org/mirrors.html), [R Tools](https://cran.rstudio.com/) and [RStudio](https://www.rstudio.com/products/rstudio/download/#download).
-    2. Download or clone this project and eventually extract it to a folder in your machine. After that, you are able to see the following structure
-        ```
-        path_to_your_folder/petro-api-r/
-                                    |
-                                    |> PLAPIClient/
-                                    |   |
-                                    |   |> man/
-                                    |   |   |
-                                    |   |   |> GetData.Rd
-                                    |   |   |> Client.Rd
-                                    |   |
-                                    |   |> R/
-                                    |   |   |
-                                    |   |   |> plapi.R
-                                    |   |
-                                    |   |> DESCRIPTION
-                                    |   |> NAMESPACE
-                                    |   |> PLAPIClient.Rproj
-                                    |
-                                    |> .gitignore
-                                    |> example.R
-                                    |> README.md
+1. Download and install [R Language](https://cloud.r-project.org/), [R Tools](https://cloud.r-project.org/) and [RStudio](https://posit.co/download/rstudio-desktop/#download).
+2. Download or clone this project and eventually extract it to a folder in your machine. After that, you are able to see the following structure
+    ```
+    your_project_path/petro-api-r/
+        |> PLAPIClient/
+            |> man/
+                |> GetAPI.Rd
+                |> Client.Rd
+            |> R/
+                |> plapi.R
+            |> DESCRIPTION
+            |> NAMESPACE
+            |> PLAPIClient.Rproj
+        |> .gitignore
+        |> example.R
+        |> LICENCE
+        |> README.md
+    ```
+3. Open **RStudio**.
+4. Locate prompt, that starts with `>` character and is located in a subdivided window named **Console**
+5. Now in the prompt, execute sequentially the following commands, to install and use packages **httr**, **usethis** and **devtools**:
+    ```R
+    > install.packages(c("httr", "usethis", "devtools"))
+    > library("httr")
+    > library("usethis")
+    > library("devtools")
+    ```
+6. Based on **your_project_path**, execute following command to move to the project PL API Client directory:
+    ```R
+    > setwd("your_project_path/petro-api-r/PLAPIClient")
+    ```
+7. Execute the following command to install the API Client:
+    ```R
+    > install(".")
+    ```
 
-        ```
-    3. Open **RStudio**.
-    4. Locate prompt, that starts with `>` character and is located in a subdivided window named **Console**
-    5. Now in the prompt, execute sequentially the following commands, to install and use **devtools**:
+## Use
+- ### Run Provided Example
+    1. Run the provided example that should print a list of "movements" after calling the API:
         ```R
-        > install.packages("devtools")
-        > library(devtools)
-        ```
-    6. Based on **path_to_your_folder**, execute following command to move to the project PL API Client directory:
-        ```R
-        > setwd("path_to_your_folder/petro-api-r/petrologistics")
-        ```
-    7. Execute the following command to install the API Client:
-        ```R
-        > install(".")
+        source("../example.R")
         ```
 
-
-- ### Running the example
-    1. Run the example that should print a list of "movements" after calling the API:
-        ```R
-        source("path_to_your_folder/petro-api-r/example.R")
-        ```
-
-
-- ### Subsequents example runs
+- ### Subsequents Example Runs
     1. Launch RStudio
     2. Run the command:
         ```R
-        source("path_to_your_folder/petro-api-r/example.R")
+        source("your_project_path/petro-api-r/example.R")
         ```
 
-
-- ### Testing example with other queries
-    1. In the initialization of the structure **Client**, eventually change **_requested_report_type_** of your choice in **api_url** 
-    2. In the function calling, change the **_query_name_** of your choice
+- ### Run Your Modified Example
+    1. In the initialization of the structure `Client`:
+        - Replace all credentials by yours (`api_user`, `api_password`, `api_key`, `api_hash`)
+        - In `api_url` replace **.../desired_type_report** (e.g. "**.../aggregatemovementsdata**", "**.../movementsdata**", etc.)
+    2. On the call of function `GetAPI`:
+        - Replace **query_name** by your desired query
     3. Run the command:
         ```R
-        source("path_to_your_folder/petro-api-r/example.R")
+        source("your_project_path/petro-api-r/your_modified_example.R")
         ```
 
-
 ## Parameters
-- **Client** structure is initialized with 5 parameters:
-    - api_url
-    - api_user
-    - api_password
-    - api_key
-    - api_hash
+- ### `Client` Structure
+    - Initialized with 5 parameters:
+        - api_url
+        - api_user
+        - api_password
+        - api_key
+        - api_hash
+    - Initialization
+        ```R
+        your_client_structure <- Client(
+            api_url = "https://secure.petro-logistics.com/api/v3/desired_type_report",
+            api_user = "your_http_user",
+            api_password = "your_http_password",
+            api_key = "your_api_key",
+            api_hash = "your_api_hash"
+        )
+        ```
 
-- **GetData** function is called with 2 parameters:
-    - client
-    - query_name
-
-## Usage
-- ### Structure initialization Example
-    ```R
-    your_client_structure_name <- Client(
-        api_url = "https://secure.petro-logistics.com/api/v3/requested_report_type",
-        api_user = "your_http_user",
-        api_password = "your_http_password",
-        api_key = "your_api_key",
-        api_hash = "your_api_hash"
-    )
-    ```
-
-
-- ### Function execution Example
-    ```R
-    res <- GetAPI(your_client_structure_name, "query_name")
-    ```
-
+- ### `GetAPI` Function Call
+    - Called with 2 parameters:
+        - your_client_structure
+        - query_name
+    - Initialization
+        ```R
+        res <- GetAPI(your_client_structure, "query_name")
+        ```
 
 ## Example
-1. An example of how to test/use PLAPIClient is available in **example.R** located [here](example.R)
+1. You can test/use our provided [example.R](example.R)
