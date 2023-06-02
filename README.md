@@ -1,5 +1,5 @@
 [![License](https://img.shields.io/github/license/petro-logistics/petro-api-r.svg)](LICENSE)
-# R API Client
+# Petro API R
 This module is a R API client (with example) for retrieving data with the [Petro-Logistics API](https://secure.petro-logistics.com/client/api).
 
 ## Index
@@ -63,10 +63,10 @@ This module is a R API client (with example) for retrieving data with the [Petro
 
 - ### Run Your Modified Example
     1. In the initialization of the structure `Client`:
-        - Replace all credentials by yours (`api_user`, `api_password`, `api_key`, `api_hash`)
-        - In `api_url` replace **.../desired_type_report** (e.g. "**.../aggregatemovementsdata**", "**.../movementsdata**", etc.)
+        - Replace all credentials by yours (`api_user`, `api_password`, `api_key`, `api_hash`) [^1]
+        - In `api_url` replace **.../desired_report_type** [^2]
     2. On the call of function `GetAPI`:
-        - Replace **query_name** by your desired query
+        - Replace **query_name** by your desired query [^3]
     3. Run the command:
         ```R
         source("your_project_path/petro-api-r/your_modified_example.R")
@@ -83,7 +83,7 @@ This module is a R API client (with example) for retrieving data with the [Petro
     - Initialization
         ```R
         your_client_structure <- Client(
-            api_url = "https://secure.petro-logistics.com/api/v3/desired_type_report",
+            api_url = "https://secure.petro-logistics.com/api/v3/desired_report_type",
             api_user = "your_http_user",
             api_password = "your_http_password",
             api_key = "your_api_key",
@@ -101,4 +101,16 @@ This module is a R API client (with example) for retrieving data with the [Petro
         ```
 
 ## Example
-1. You can test/use our provided [example.R](example.R)
+You can test/use our provided [example.R](example.R)
+
+---
+---
+[^1]:
+    > - If you don't find your credentials, please contact our support!
+
+[^2]:
+    > - If you don't know what the **desired_report_type**, please contact our support
+    > - e.g. of **desired_report_type**: ".../aggregatemovementsdata", ".../movementsdata", etc.
+
+[^3]:
+    > - If you don't find your **query_name**, please contact our support!
