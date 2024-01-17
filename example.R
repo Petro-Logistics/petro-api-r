@@ -1,4 +1,4 @@
-# Copyright (c) 2023 Petro-Logistics S.A., All rights reserved.
+# Copyright (c) 2024 Petro-Logistics S.A., All rights reserved.
 #
 # This work is licensed under the terms of the MIT license.
 # For a copy, see <https://opensource.org/licenses/MIT>.
@@ -11,10 +11,13 @@ library(PLAPIClient)
 # !!! If you don't find your credentials, please contact our support!
 #
 # Provide your "desired_report_type"
-# !!! If you don't know what the **desired_report_type**, please contact our support
-# !!! e.g. of "desired_report_type": "/aggregatemovementsdata", "/movementsdata", etc.
+# !!! If you don't know what the **desired_report_type**
+# , please contact our support
+#
+# !!! e.g. of "desired_report_type":
+# "/aggregatemovementsdata", "/movementsdata", etc.
 client <- Client(
-  api_url = "https://secure.petro-logistics.com/api/v3/aggregatemovementsdata",
+  api_url = "https://secure.petro-logistics.com/api/v4/aggregatemovementsdata",
   api_user = "testuser_http_kRQNk5878ezA",
   api_password = "F268DBvvPCBV83eT1vIeTpBGrJD604K2",
   api_key = "37rspm6j39td23nh0o2v0h78",
